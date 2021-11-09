@@ -33,7 +33,7 @@ class App extends React.Component {
   //for us to see an accurate update of our data
   //cdu tab
   componentDidUpdate(prevProps, prevState) {
-    console.log('This is from state: ', this.state.beers)
+    console.log('This is from state; this.state.beers: ', this.state.beers)
   }
 
   likeBeer = (index) => {
@@ -41,12 +41,14 @@ class App extends React.Component {
     if(!this.state.likedArray.includes(index)){
       this.state.likedArray.push(index)
       console.log(`added ${index} to likedArray: ${this.state.likedArray}`)
+      this.setState({class: 'liked'});
       //I want to change the class of the button here, so I can change the styling
       //but I dont know how to access the button
     }
     else{
       console.log(`this array ${this.state.likedArray} already includes ${index}`)
     }
+
   }
 
   render() {
